@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditor Panel Terminal | Dhaxal Engine</title>
+    <link rel="stylesheet" href="inheritance-core.css">
+    <style>
+        .panel-grid { display: grid; grid-template-columns: 240px 1fr; gap: 30px; margin: 40px auto; max-width: 1200px; padding: 0 20px; }
+        .side-menu { background: #ffffff; border: 1px solid var(--border-slate); border-radius: 8px; padding: 20px; height: fit-content; }
+        .menu-link { display: block; padding: 10px 14px; color: var(--text-dark); text-decoration: none; border-radius: 6px; font-size: 0.9rem; margin-bottom: 5px; font-weight: 500; }
+        .menu-link.active, .menu-link:hover { background: var(--bg-canvas); color: var(--primary-teal); }
+        .case-row { background: #ffffff; border: 1px solid var(--border-slate); border-radius: 8px; padding: 20px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+    </style>
+</head>
+<body>
+
+    <nav class="sys-navbar">
+        <a href="index.html" class="sys-logo">⚖️ DHAXAL<span>ENGINE</span></a>
+        <div style="font-size: 0.9rem; color: var(--text-slate);">Logged Session: <strong>Auditor Ref ID #409</strong> | <a href="index.html" style="color:var(--primary-teal); text-decoration:none; font-weight:600;">Log Out</a></div>
+    </nav>
+
+    <div class="panel-grid">
+        <aside class="side-menu">
+            <span style="font-size:0.75rem; text-transform:uppercase; font-weight:700; color:var(--text-slate); display:block; margin-bottom:10px; padding-left:14px;">Workstation</span>
+            <a href="#" class="menu-link active">📋 Open Case Log</a>
+            <a href="#" class="menu-link">✔️ Approved Valuations</a>
+            <a href="#" class="menu-link">⚙️ Rule Engine Config</a>
+        </aside>
+
+        <main>
+            <h2 style="font-family:'Space Grotesk'; margin-bottom: 20px;">Active Estate Verification Pipeline</h2>
+            
+            <!-- Case Node 1 -->
+            <div class="case-row">
+                <div>
+                    <h4 style="font-size:1.1rem; color:var(--text-dark);">Estate of Ali G. Farah</h4>
+                    <span style="font-size:0.8rem; color:var(--text-slate);">Case Token ID: <strong>DX-2026-9912</strong> | Distribution Law: <em>Islamic Fara'id</em></span>
+                </div>
+                <div>
+                    <a href="results.html" class="btn-action" style="padding: 8px 16px; font-size: 0.85rem;">Review Audit shares</a>
+                </div>
+            </div>
+
+            <!-- Case Node 2 -->
+            <div class="case-row">
+                <div>
+                    <h4 style="font-size:1.1rem; color:var(--text-dark);">Estate of Amina H. Yusuf</h4>
+                    <span style="font-size:0.8rem; color:var(--text-slate);">Case Token ID: <strong>DX-2026-9945</strong> | Distribution Law: <em>Statutory Civil Code</em></span>
+                </div>
+                <div>
+                    <a href="results.html" class="btn-action" style="padding: 8px 16px; font-size: 0.85rem;">Review Audit Shares</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>&copy; 2026 DhaxalEngine Internal Networks.</footer>
+
+</body>
+</html>

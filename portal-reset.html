@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Portal Credentials | Dhaxal Engine</title>
+    <link rel="stylesheet" href="inheritance-core.css">
+    <style>
+        .recovery-viewport { min-height: calc(100vh - 80px); display: flex; justify-content: center; align-items: center; background: radial-gradient(circle at center, #115e59 0%, #042f2e 100%); padding: 20px; }
+        .recovery-box { background: #ffffff; width: 100%; max-width: 440px; padding: 40px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); }
+    </style>
+</head>
+<body>
+
+    <nav class="sys-navbar">
+        <a href="index.html" class="sys-logo">⚖️ DHAXAL<span>ENGINE</span></a>
+    </nav>
+
+    <div class="recovery-viewport">
+        <div class="recovery-box">
+            <h2 style="font-family:'Space Grotesk'; color: var(--text-dark); text-align:center; margin-bottom:8px;">Account Recovery</h2>
+            <p style="color: var(--text-slate); font-size: 0.85rem; text-align:center; margin-bottom:25px;">Provide your registered institutional email profile below.</p>
+
+            <form action="portal-login.html" method="GET" onsubmit="alert('Recovery verification token dispatched via encrypted mail node.');">
+                <div class="input-row">
+                    <label for="recovery-email">Institutional Identity Email</label>
+                    <input type="email" id="recovery-email" placeholder="justice-dept@dhaxal.gov" required autocomplete="email">
+                </div>
+                <button type="submit" class="btn-action" style="width: 100%; padding: 13px; font-size: 1rem; margin-top: 5px;">Dispatch Reset Authorization</button>
+            </form>
+            <a href="portal-login.html" style="display:block; text-align:center; margin-top:20px; font-size:0.85rem; color:var(--text-slate); text-decoration:none;">◀ Back to Portal Terminal Gateway</a>
+        </div>
+    </div>
+
+</body>
+</html>

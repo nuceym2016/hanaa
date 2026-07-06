@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Calculator | Dhaxal Engine</title>
+    <link rel="stylesheet" href="inheritance-core.css">
+    <style>
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        @media (max-width: 640px) { .form-layout-2, .grid-3 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav class="sys-navbar">
+        <a href="index.html" class="sys-logo">⚖️ DHAXAL<span>ENGINE</span></a>
+        <ul class="sys-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="calculator.html" class="active">Run Calculator</a></li>
+            <li><a href="contact.html">Support Desk</a></li>
+            <li><a href="portal-login.html" class="btn-action">Auditor Portal</a></li>
+        </ul>
+    </nav>
+
+    <div style="max-width: 850px; margin: 40px auto; padding: 0 20px;">
+        <div style="text-align:center; margin-bottom:35px;">
+            <h2 style="font-family:'Space Grotesk'; font-size: 2rem;">Estate Valuation Framework</h2>
+            <p style="color:var(--text-slate);">Input metrics below to compile legal fractional share records.</p>
+        </div>
+
+        <div class="card-frame">
+            <form action="results.html" method="GET">
+                <h3 style="color:var(--primary-teal); border-bottom:1px solid var(--border-slate); padding-bottom:8px; margin-bottom:20px; font-family:'Space Grotesk';">1. Financial Balance Ledger</h3>
+                
+                <div class="form-layout-2">
+                    <div class="input-row"><label>Gross Capital/Asset Value ($)</label><input type="number" required min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="input-row"><label>Funeral & Burial Deductions ($)</label><input type="number" min="0" step="0.01" placeholder="0.00"></div>
+                </div>
+                <div class="form-layout-2">
+                    <div class="input-row"><label>Outstanding Personal Liabilities ($)</label><input type="number" min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="input-row"><label>Valid Bequests/Wills (Max 1/3 value) ($)</label><input type="number" min="0" step="0.01" placeholder="0.00"></div>
+                </div>
+
+                <h3 style="color:var(--primary-teal); border-bottom:1px solid var(--border-slate); padding-bottom:8px; margin-top:30px; margin-bottom:20px; font-family:'Space Grotesk';">2. Deceased Profile Configuration</h3>
+                <div class="form-layout-2">
+                    <div class="input-row"><label>Gender of Deceased</label><select required><option value="male">Male (Ninkii Geeriyooday)</option><option value="female">Female (Haweenaydii Geeriyootay)</option></select></div>
+                    <div class="input-row"><label>Legal Regulatory System</label><select required><option value="islamic">Islamic Fara'id Rules</option><option value="civil">Statutory Civil Framework</option></select></div>
+                </div>
+
+                <h3 style="color:var(--primary-teal); border-bottom:1px solid var(--border-slate); padding-bottom:8px; margin-top:30px; margin-bottom:20px; font-family:'Space Grotesk';">3. Active Surviving Heirs Mapping</h3>
+                <div class="grid-3">
+                    <div class="input-row"><label>Surviving Spouses</label><input type="number" value="0" min="0" max="4"></div>
+                    <div class="input-row"><label>Sons (Wiilal)</label><input type="number" value="0" min="0"></div>
+                    <div class="input-row"><label>Daughters (Gabdho)</label><input type="number" value="0" min="0"></div>
+                </div>
+                <div class="grid-3">
+                    <div class="input-row"><label>Father Status</label><select><option value="0">Deceased / None</option><option value="1">Surviving</option></select></div>
+                    <div class="input-row"><label>Mother Status</label><select><option value="0">Deceased / None</option><option value="1">Surviving</option></select></div>
+                    <div class="input-row"><label>Full Brothers</label><input type="number" value="0" min="0"></div>
+                </div>
+
+                <button type="submit" class="btn-action" style="width:100%; margin-top:25px; padding:15px; font-size:1rem;">Compute Distribution Ledger</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 DhaxalEngine Digital Frameworks.</footer>
+
+</body>
+</html>
