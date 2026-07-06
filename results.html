@@ -3,87 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculation Diagnostics Matrix | Dhaxal Engine</title>
-    <link rel="stylesheet" href="inheritance-core.css">
-    <style>
-        .summary-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .data-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .data-table th, .data-table td { text-align: left; padding: 14px; border-bottom: 1px solid var(--border-slate); }
-        .data-table th { background: var(--bg-canvas); font-weight: 600; color: var(--text-dark); }
-        .ledger-list { list-style: none; margin-bottom: 25px; background: var(--bg-canvas); padding: 20px; border-radius: 8px; border: 1px solid var(--border-slate); }
-        .ledger-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--border-slate); }
-        .ledger-list li:last-child { border-bottom: none; font-weight: 700; color: var(--primary-teal); }
-    </style>
+    <title>Calculation Matrix | Dhaxal Engine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>.font-heading { font-family: 'Space Grotesk', sans-serif; }</style>
 </head>
-<body>
+<body class="bg-light">
 
-    <nav class="sys-navbar">
-        <a href="index.html" class="sys-logo">⚖️ DHAXAL<span>ENGINE</span></a>
-        <ul class="sys-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="calculator.html">Run Another Calculation</a></li>
-        </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-white bg-white border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand font-heading fw-bold text-success" href="index.html">⚖️ DHAXAL<span>ENGINE</span></a>
+            <ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link text-muted" href="calculator.html">Run Another Calculation</a></li></ul>
+        </div>
     </nav>
 
-    <main style="max-width:900px; margin:50px auto; padding: 0 20px;">
-        <div style="margin-bottom:25px;">
-            <h2 style="font-family:'Space Grotesk'; font-size:2rem;">Estate Share Diagnostics Report</h2>
-            <p style="color:var(--text-slate);">Calculated Evaluation Token Reference: <strong id="token-id">DX-2026-XXXX</strong></p>
+    <!-- Content Container -->
+    <main class="container my-5" style="max-width: 900px;">
+        <div class="mb-4">
+            <h2 class="font-heading fw-bold display-6 mb-1">Estate Share Diagnostics Report</h2>
+            <p class="text-muted small">Calculated Evaluation Token Reference: <strong id="token-id">DX-2026-XXXX</strong></p>
         </div>
 
-        <!-- Financial Deductions Ledger -->
-        <div class="card-frame" style="margin-bottom: 30px; padding: 25px;">
-            <h3 style="font-family:'Space Grotesk'; color:var(--text-dark); margin-bottom:15px;">Estate Reconciliation Log</h3>
-            <ul class="ledger-list">
-                <li><span>Gross Asset Valuation:</span><span id="log-gross">$0.00</span></li>
-                <li><span>(-) Funeral & Burial Claims:</span><span id="log-funeral">$0.00</span></li>
-                <li><span>(-) Personal Debts & Liabilities:</span><span id="log-debts">$0.00</span></li>
-                <li><span>(-) Executed Will Testaments:</span><span id="log-wills">$0.00</span></li>
-                <li><span>Net Distributable Residue:</span><span id="log-net">$0.00</span></li>
-            </ul>
-        </div>
-
-        <div class="summary-box">
-            <div>
-                <span style="font-size:0.8rem; text-transform:uppercase; color:#166534; font-weight:700; display:block;">Net Capital Allocation Pool</span>
-                <strong style="font-size:1.8rem; color:var(--text-dark);" id="summary-net-pool">$0.00</strong>
+        <!-- Ledger Reco Card -->
+        <div class="card border-0 shadow-sm rounded-3 p-3 mb-4">
+            <div class="card-body">
+                <h3 class="font-heading h6 fw-bold mb-3 text-dark">Estate Reconciliation Log</h3>
+                <div class="row row-cols-1 g-2 small border-bottom pb-2 mb-2">
+                    <div class="d-flex justify-content-between"><span>Gross Asset Valuation:</span><span id="log-gross" class="fw-bold">$0.00</span></div>
+                    <div class="d-flex justify-content-between text-danger"><span>(-) Funeral & Burial Claims:</span><span id="log-funeral">$0.00</span></div>
+                    <div class="d-flex justify-content-between text-danger"><span>(-) Personal Debts & Liabilities:</span><span id="log-debts">$0.00</span></div>
+                    <div class="d-flex justify-content-between text-danger"><span>(-) Executed Will Testaments:</span><span id="log-wills">$0.00</span></div>
+                </div>
+                <div class="d-flex justify-content-between fw-bold text-success h5 pt-2">
+                    <span>Net Distributable Residue:</span><span id="log-net">$0.00</span>
+                </div>
             </div>
-            <span style="background:#dcfce7; color:#166534; padding:6px 12px; border-radius:4px; font-size:0.75rem; font-weight:700;">VALUATION RECONCILED</span>
         </div>
 
-        <!-- Calculated Share Output Table -->
-        <div class="card-frame">
-            <h3 style="font-family:'Space Grotesk'; color:var(--primary-teal); border-bottom:1px solid var(--border-slate); padding-bottom:10px;">Legal Apportionment Matrix</h3>
-            
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Legal Heir Relation</th>
-                        <th>Distribution Rule Category</th>
-                        <th>Assigned Fraction</th>
-                        <th>Net Share Allocation ($)</th>
-                    </tr>
-                </thead>
-                <tbody id="matrix-body">
-                    <!-- Javascript will write the static matrix rows directly here -->
-                </tbody>
-            </table>
-        </div>
-
-        <div style="text-align:center; margin-top:30px;">
-            <a href="calculator.html" style="color:var(--primary-teal); text-decoration:none; font-weight:600; font-size:0.95rem;">◀ Return to Intake System Terminal</a>
+        <!-- Table Card -->
+        <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+            <div class="card-header bg-white py-3 border-0">
+                <h3 class="font-heading h5 mb-0 fw-bold" style="color: #0f766e;">Legal Apportionment Matrix</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light text-muted small">
+                        <tr>
+                            <th>Legal Heir Relation</th>
+                            <th>Category</th>
+                            <th>Fraction</th>
+                            <th>Net Share Allocation ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="matrix-body" class="small">
+                        <!-- Output dynamic table markup dynamically -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
 
-    <footer>&copy; 2026 DhaxalEngine Digital Frameworks.</footer>
-
-    <!-- Client-Side Engine Logic Script -->
+    <!-- Internal Arithmetic Parser -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            // Generate a random dynamic validation code
             document.getElementById('token-id').innerText = 'DX-2026-' + Math.floor(1000 + Math.random() * 9000);
-
-            // Parse form data from URL variables
             const params = new URLSearchParams(window.location.search);
             
             const gross = parseFloat(params.get('gross_assets')) || 500000;
@@ -98,128 +82,52 @@
             const hasFather = parseInt(params.get('has_father')) || 0;
             const hasMother = parseInt(params.get('has_mother')) || 0;
 
-            // Step 1: Compute Financial Arithmetic
             const initialNet = gross - funeral - debts;
-            // Wills cannot exceed 1/3 of remaining assets under traditional framework guidelines
-            const maxAllowableWill = initialNet / 3;
-            const actualWillDeduction = wills > maxAllowableWill ? maxAllowableWill : wills;
-            const netDistributable = initialNet - actualWillDeduction;
+            const maxWill = initialNet / 3;
+            const trueWill = wills > maxWill ? maxWill : wills;
+            const netDistributable = initialNet - trueWill;
 
-            // Output math fields into UI logs
-            document.getElementById('log-gross').innerText = '$' + gross.toLocaleString('en-US', {minimumFractionDigits: 2});
-            document.getElementById('log-funeral').innerText = '$' + funeral.toLocaleString('en-US', {minimumFractionDigits: 2});
-            document.getElementById('log-debts').innerText = '$' + debts.toLocaleString('en-US', {minimumFractionDigits: 2});
-            document.getElementById('log-wills').innerText = '$' + actualWillDeduction.toLocaleString('en-US', {minimumFractionDigits: 2}) + (wills > maxAllowableWill ? ' (Capped at 1/3)' : '');
-            document.getElementById('log-net').innerText = '$' + netDistributable.toLocaleString('en-US', {minimumFractionDigits: 2});
-            document.getElementById('summary-net-pool').innerText = '$' + netDistributable.toLocaleString('en-US', {minimumFractionDigits: 2});
+            document.getElementById('log-gross').innerText = '$' + gross.toLocaleString();
+            document.getElementById('log-funeral').innerText = '-$' + funeral.toLocaleString();
+            document.getElementById('log-debts').innerText = '-$' + debts.toLocaleString();
+            document.getElementById('log-wills').innerText = '-$' + trueWill.toLocaleString();
+            document.getElementById('log-net').innerText = '$' + netDistributable.toLocaleString();
 
-            // Step 2: Distribution Calculations (Islamic Fara'id Model Ruleset)
-            let fixedTotalFraction = 0;
             let rowsHtml = '';
             let remainingPool = netDistributable;
+            const hasChildren = (countSons > 0 || countDaughters > 0);
 
-            // A: Spouse Shares Configuration
-            let spouseFraction = 0;
-            let spouseLabel = gender === 'male' ? 'Wife' : 'Husband';
             if (countSpouses > 0) {
-                const hasDescendants = (countSons > 0 || countDaughters > 0);
-                if (gender === 'male') {
-                    spouseFraction = hasDescendants ? 0.125 : 0.25; // 1/8 if children exist, 1/4 if none
-                } else {
-                    spouseFraction = hasDescendants ? 0.25 : 0.50; // 1/4 if children exist, 1/2 if none
-                }
-                const totalSpousePayout = netDistributable * spouseFraction;
-                const perSpousePayout = totalSpousePayout / countSpouses;
-                fixedTotalFraction += spouseFraction;
-                remainingPool -= totalSpousePayout;
-
-                rowsHtml += `<tr>
-                    <td><strong>${spouseLabel} (${countSpouses}x)</strong></td>
-                    <td>Fixed Quranic Share (Zawj)</td>
-                    <td>${gender === 'male' ? (hasDescendants ? '1/8' : '1/4') : (hasDescendants ? '1/4' : '1/2')} total</td>
-                    <td>$${perSpousePayout.toLocaleString('en-US', {maximumFractionDigits:2})} each</td>
-                </tr>`;
+                let f = gender === 'male' ? (hasChildren ? 0.125 : 0.25) : (hasChildren ? 0.25 : 0.5);
+                let total = netDistributable * f;
+                remainingPool -= total;
+                rowsHtml += `<tr><td><strong>${gender === 'male' ? 'Wife' : 'Husband'} (${countSpouses}x)</strong></td><td>Fixed Quranic Share</td><td>${gender === 'male' ? (hasChildren ? '1/8' : '1/4') : (hasChildren ? '1/4' : '1/2')}</td><td class="text-success fw-bold">$${(total/countSpouses).toLocaleString()} each</td></tr>`;
             }
-
-            // B: Mother Share Configuration
             if (hasMother === 1) {
-                let motherFraction = (countSons > 0 || countDaughters > 0) ? (1/6) : (1/3);
-                const motherPayout = netDistributable * motherFraction;
-                fixedTotalFraction += motherFraction;
-                remainingPool -= motherPayout;
-
-                rowsHtml += `<tr>
-                    <td><strong>Mother (Umm)</strong></td>
-                    <td>Fixed Quranic Share</td>
-                    <td>${(countSons > 0 || countDaughters > 0) ? '1/6' : '1/3'}</td>
-                    <td>$${motherPayout.toLocaleString('en-US', {maximumFractionDigits:2})}</td>
-                </tr>`;
+                let f = hasChildren ? (1/6) : (1/3);
+                let total = netDistributable * f;
+                remainingPool -= total;
+                rowsHtml += `<tr><td><strong>Mother (Umm)</strong></td><td>Fixed Quranic Share</td><td>${hasChildren ? '1/6' : '1/3'}</td><td class="text-success fw-bold">$${total.toLocaleString()}</td></tr>`;
             }
-
-            // C: Father Share Configuration
             if (hasFather === 1) {
-                let fatherFraction = 1/6; // Base share if children exist
-                const fatherPayout = netDistributable * fatherFraction;
-                fixedTotalFraction += fatherFraction;
-                remainingPool -= fatherPayout;
-
-                rowsHtml += `<tr>
-                    <td><strong>Father (Ab)</strong></td>
-                    <td>Fixed Quranic Share</td>
-                    <td>1/6</td>
-                    <td>$${fatherPayout.toLocaleString('en-US', {maximumFractionDigits:2})}</td>
-                </tr>`;
+                let f = 1/6;
+                let total = netDistributable * f;
+                remainingPool -= total;
+                rowsHtml += `<tr><td><strong>Father (Ab)</strong></td><td>Fixed Quranic Share</td><td>1/6</td><td class="text-success fw-bold">$${total.toLocaleString()}</td></tr>`;
             }
-
-            // D: Children Residuary Share Configuration (Asabah)
             if (countSons > 0 || countDaughters > 0) {
-                // Ensure remaining balance doesn't clear below absolute zero
-                if (remainingPool < 0) remainingPool = 0;
-                
-                // Rule metric: 2 shares per Son, 1 share per Daughter
-                const totalSharesCount = (countSons * 2) + countDaughters;
-                const shareValue = remainingPool / totalSharesCount;
-
+                let totalShares = (countSons * 2) + countDaughters;
+                let baseShare = Math.max(0, remainingPool) / totalShares;
                 if (countSons > 0) {
-                    const sonPayout = shareValue * 2;
-                    rowsHtml += `<tr>
-                        <td><strong>Sons (${countSons}x)</strong></td>
-                        <td>Residuary Asabah (2:1 Ratio)</td>
-                        <td>2 parts per son</td>
-                        <td>$${sonPayout.toLocaleString('en-US', {maximumFractionDigits:2})} each</td>
-                    </tr>`;
+                    rowsHtml += `<tr><td><strong>Sons (${countSons}x)</strong></td><td>Residuary (Asabah)</td><td>2 parts</td><td class="text-success fw-bold">$${(baseShare * 2).toLocaleString()} each</td></tr>`;
                 }
                 if (countDaughters > 0) {
-                    const daughterPayout = shareValue;
-                    rowsHtml += `<tr>
-                        <td><strong>Daughters (${countDaughters}x)</strong></td>
-                        <td>Residuary Asabah (2:1 Ratio)</td>
-                        <td>1 part per daughter</td>
-                        <td>$${daughterPayout.toLocaleString('en-US', {maximumFractionDigits:2})} each</td>
-                    </tr>`;
+                    rowsHtml += `<tr><td><strong>Daughters (${countDaughters}x)</strong></td><td>Residuary (Asabah)</td><td>1 part</td><td class="text-success fw-bold">$${baseShare.toLocaleString()} each</td></tr>`;
                 }
-            } else {
-                // If there are no children, remaining residue defaults back to Father or alternative relatives
-                if (hasFather === 1 && remainingPool > 0) {
-                    const primaryFatherRow = rowsHtml;
-                    // Append the dynamic balance remainder to the father's share box
-                    rowsHtml += `<tr>
-                        <td><strong>Father Residue Addendum</strong></td>
-                        <td>Remaining Residuary (Asabah)</td>
-                        <td>Balance Remainder</td>
-                        <td>$${remainingPool.toLocaleString('en-US', {maximumFractionDigits:2})}</td>
-                    </tr>`;
-                } else if (remainingPool > 0) {
-                    rowsHtml += `<tr>
-                        <td><strong>Unallocated Residue</strong></td>
-                        <td>Baitul Mal / Treasury Box</td>
-                        <td>Remainder Balance</td>
-                        <td>$${remainingPool.toLocaleString('en-US', {maximumFractionDigits:2})}</td>
-                    </tr>`;
-                }
+            } else if (hasFather === 1 && remainingPool > 0) {
+                rowsHtml += `<tr><td><strong>Father (Asabah Residue)</strong></td><td>Residuary Balance</td><td>Remainder</td><td class="text-success fw-bold">$${remainingPool.toLocaleString()}</td></tr>`;
             }
 
-            // Print the dynamic static records row blocks into the view frame body area
             document.getElementById('matrix-body').innerHTML = rowsHtml;
         });
     </script>

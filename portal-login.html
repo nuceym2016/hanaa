@@ -4,38 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internal Auditor Gateway | Dhaxal Engine</title>
-    <link rel="stylesheet" href="inheritance-core.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        .split-viewport { min-height: calc(100vh - 80px); display: flex; justify-content: center; align-items: center; background: radial-gradient(circle at center, #115e59 0%, #042f2e 100%); padding: 20px; }
-        .modal-box { background: #ffffff; width: 100%; max-width: 420px; padding: 40px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); }
+        .font-heading { font-family: 'Space Grotesk', sans-serif; }
+        .radial-bg { background: radial-gradient(circle at center, #115e59 0%, #042f2e 100%); min-height: calc(100vh - 71px); }
     </style>
 </head>
 <body>
 
-    <nav class="sys-navbar">
-        <a href="index.html" class="sys-logo">⚖️ DHAXAL<span>ENGINE</span></a>
-        <ul class="sys-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="calculator.html">Run Calculator</a></li>
-        </ul>
+    <!-- Simple Nav Header -->
+    <nav class="navbar navbar-white bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand font-heading fw-bold text-success" href="index.html">⚖️ DHAXAL<span>ENGINE</span></a>
+            <a href="index.html" class="btn btn-outline-secondary btn-sm">Home</a>
+        </div>
     </nav>
 
-    <div class="split-viewport">
-        <div class="modal-box">
-            <h2 style="font-family:'Space Grotesk'; text-align:center; color:var(--text-dark); margin-bottom:6px;">Auditor Access</h2>
-            <p style="text-align:center; font-size:0.85rem; color:var(--text-slate); margin-bottom:25px;">Sign in to execute complex judicial records updates.</p>
-            
-            <form action="admin-dashboard.html" method="GET">
-                <div class="input-row"><label>Auditor Network Key ID</label><input type="text" placeholder="Badge/License Number" required></div>
-                <div class="input-row"><label>Security Verification Password</label><input type="password" placeholder="••••••••" required></div>
-                <button type="submit" class="btn-action" style="width:100%; padding:13px; font-size:1rem; margin-top:10px;">Verify Security Signature</button>
-            </form>
-            
-            <div style="text-align:center; margin-top:20px; font-size:0.85rem;">
-                <a href="portal-reset.html" style="color:var(--text-slate); text-decoration:none;">Reset Credentials?</a>
+    <!-- Login Area Container -->
+    <div class="radial-bg d-flex align-items-center justify-content-center px-3">
+        <div class="card border-0 shadow-lg p-4 rounded-3 w-100" style="max-width: 420px;">
+            <div class="card-body">
+                <h2 class="font-heading fw-bold h4 text-center text-dark mb-1">Auditor Access</h2>
+                <p class="text-center text-muted small mb-4">Sign in to execute complex judicial records updates.</p>
+                
+                <form action="admin-dashboard.html" method="GET">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Auditor Network Key ID</label>
+                        <input type="text" class="form-control" placeholder="Badge/License Number" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold">Security Verification Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn text-white w-100 py-2 fw-bold font-heading shadow-sm" style="background-color: #0f766e;">Verify Security Signature</button>
+                </form>
+                <div class="text-center mt-3"><a href="portal-reset.html" class="text-muted small text-decoration-none">Reset Credentials?</a></div>
             </div>
         </div>
     </div>
-
 </body>
 </html>
